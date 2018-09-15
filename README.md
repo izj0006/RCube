@@ -1,5 +1,5 @@
-# Spring2018SoftwareProcess
-Spring 2018 Software Process assignments ... rubic's cube
+# Fall2018SoftwareProcess
+Fall 2018 Software Process assignments ... rubic's cube
 
 This project is the starter code for the assignments in the 2018 Spring Semester offering
 of COMP5700/6700/6706  Software Process.
