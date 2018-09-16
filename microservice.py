@@ -17,7 +17,7 @@ def server():
         parm = {}
         for key in request.args:
             parm[key] = str(request.args[key])
-        result=RCube.dispatch(parm)
+        result = RCube.dispatch(parm)
         return str(result)
     except Exception as e:
         return e

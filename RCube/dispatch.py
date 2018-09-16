@@ -5,17 +5,12 @@ def dispatch(parm={}):
         httpResponse['status'] = 'error: missing op'
     elif(parm['op'] == 'create'):
         httpResponse['status'] = 'created'
-        
-        
-        
-        
+              
         
         # replace this with your code
-        cube = parm
+        cube = [ ]
         # replace this with your code
-        
-        
-        
+             
         
         httpResponse['cube'] = cube
     return httpResponse
