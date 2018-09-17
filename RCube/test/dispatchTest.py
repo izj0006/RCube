@@ -48,14 +48,14 @@ class DispatchTest(unittest.TestCase):
         
 #Acceptance Tests
 #
-# 100 dispatch
+# 100 dispatch - basic functionality
 # Desired level of confidence: boundary value analysis
 # Analysis 
 # inputs:     http:// ...myURL... /httpGetAndResponse?parm
 #            parm is a string consisting of key-value pairs
 #            At a minimum, parm must contain one key of "op"
 #
-# outputs:    A JSON string containing, at a minimimum, a key of "status"
+# outputs:    A JSON string containing, at a minimum, a key of "status"
 #
 # Happy path 
 #      input:   parm having at least one element with a key of "op"        
