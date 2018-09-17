@@ -74,7 +74,7 @@ class DispatchTest(unittest.TestCase):
 #
 #
 # Happy path
-    def test_100_010_ShouldReturnSuccessKey(self):
+    def test100_010_ShouldReturnSuccessKey(self):
         queryString="op=create"
         resultString = self.httpGetAndResponse(queryString)
         resultDict = self.string2dict(resultString)
