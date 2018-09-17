@@ -61,7 +61,7 @@ class DispatchTest(unittest.TestCase):
 #      input:   parm having at least one element with a key of "op"        
 #      output:  JSON string containing a key of "status" 
 #
-# Happy path 
+# Sad path 
 #      input:   no string       
 #      output:  dictionary consisting of an element with a key of "status" and value of "error: missing op"
 #
