@@ -9,7 +9,5 @@ def dispatch(parm={}):
     return httpResponse
     
 def createCube(parm):
-    cube=[]
-    if (parm):
-        print(createCube(parm))   
+    cube=['green']
     return cube
