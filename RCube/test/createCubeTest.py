@@ -24,4 +24,5 @@ class createCubeTest(unittest.TestCase):
         for face in expectedFaces:
             for _ in range(0,9):
                 self.assertEqual(face, actualResult[elementIndex])
+                print(actualResult[elementIndex])
                 elementIndex += 1
