@@ -10,9 +10,6 @@ def dispatch(parm={}):
     elif(parm['op'] == 'create'):
         httpResponse['status'] = 'created'
         httpResponse['cube']=createCube(parm)
-    elif(parm['op'] == 'create' & parm['f'] == 'f' & parm['r'] == 'r'& parm['b'] == 'b'& parm['l'] == 'l'& parm['t'] == 't'& parm['u'] == 'u'):
-        httpResponse['status'] = 'created'
-        httpResponse['cube']=createCube(parm)
     return httpResponse
     
 def createCube(parm):
