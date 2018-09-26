@@ -87,7 +87,12 @@ class DispatchTest(unittest.TestCase):
         self.assertIn('status', resultDict)
         self.assertEquals('error:',resultDict['status'][0:6])
     
-    
+    def test100_030_ShouldCreateDefaultCubeStatus(self):
+        queryString="op=create"
+        resultString = self.httpGetAndResponse(queryString)
+        resultDict = self.string2dict(resultString)
+        self.assertIn('status',resultDict)
+        self.assertEquals('created',resultDict['status'][0:7])
     
     # Sad path
     
