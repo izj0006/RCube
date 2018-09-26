@@ -99,7 +99,7 @@ class DispatchTest(unittest.TestCase):
         resultString = self.httpGetAndResponse(queryString)
         resultDict = self.string2dict(resultString)
         self.assertIn('cube',resultDict)
-    
+
     def test100_050_ShouldCreateDefaultCubeValue(self):
         queryString="op=create"
         resultString = self.httpGetAndResponse(queryString)
@@ -110,6 +110,7 @@ class DispatchTest(unittest.TestCase):
         for face in expectedFaces:
             for _ in range(0,9):
                 self.assertEqual(face, actualResult[actualFaceIndex])
+                print(actualResult[actualFaceIndex])
                 actualFaceIndex += 1    
     # Sad path
     
