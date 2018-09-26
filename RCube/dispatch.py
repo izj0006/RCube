@@ -1,4 +1,4 @@
-#parm ={'op':'create', 'f': 'f' }
+parm ={'op':'create', 'f': 'f','r':'r','b':'b','l':'l','t':'t','u':'u' }
 def dispatch(parm={}):
     httpResponse = {}
     if(not('op' in parm)):
