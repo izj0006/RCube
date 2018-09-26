@@ -108,7 +108,7 @@ class DispatchTest(unittest.TestCase):
         expectedFaces = ['green','yellow','blue','white','red','orange']
         actualFaceIndex = 0
         for face in expectedFaces:
-            for _ in range(0,9)
+            for _ in range(0,9):
                 self.assertEqual(face, actualResult[actualFaceIndex])
                 actualFaceIndex += 1    
     # Sad path
