@@ -1,8 +1,6 @@
 #parm ={'op':'create', 'f': 'f','r':'r','b':'b','l':'l','t':'t','u':'u' }
 #parm.setdefault('f','green')
 
-
-
 def dispatch(parm={}):
     httpResponse = {}
     if(not('op' in parm)):
