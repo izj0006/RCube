@@ -117,7 +117,7 @@ class DispatchTest(unittest.TestCase):
         resultString = self.httpGetAndResponse(queryString)
         resultDict = self.string2dict(resultString)
         actualResult = resultDict['cube']
-        expectedFaces = ['green','yellow','blue','white','red','orange']
+        expectedFaces = ['f','r','b','l','t','u']
         actualFaceIndex = 0
         for face in expectedFaces:
             for _ in range(0,9):
