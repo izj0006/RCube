@@ -111,7 +111,8 @@ class DispatchTest(unittest.TestCase):
             for _ in range(0,9):
                 self.assertEqual(face, actualResult[actualFaceIndex])
                 print(actualResult[actualFaceIndex])
-                actualFaceIndex += 1    
+                actualFaceIndex += 1
+                
     # Sad path
     
     def test100_900_ShouldReturnErrorOnEmptyParm(self):
