@@ -112,6 +112,17 @@ class DispatchTest(unittest.TestCase):
                 self.assertEqual(face, actualResult[actualFaceIndex])
                 actualFaceIndex += 1
                 
+    def test100_060_SpecificExampleNoTwo(self):
+        queryString="op=create&f=f&r=r&b=b&l=l&t=t&u=u"
+        resultString = self.httpGetAndResponse(queryString)
+        resultDict = self.string2dict(resultString)
+        actualResult = resultDict['cube']
+        expectedFaces = ['green','yellow','blue','white','red','orange']
+        actualFaceIndex = 0
+        for face in expectedFaces:
+            for _ in range(0,9):
+                self.assertEqual(face, actualResult[actualFaceIndex])
+                actualFaceIndex += 1
     # Sad path
     
     def test100_900_ShouldReturnErrorOnEmptyParm(self):
