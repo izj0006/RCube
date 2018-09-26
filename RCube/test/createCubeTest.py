@@ -11,7 +11,7 @@ class createCubeTest(unittest.TestCase):
     
     def test100_620_ShouldCreateMultipleElementCube(self):
         parm = {'op' : 'create'}
-        expectedResult = ['green']
+        expectedResult = 'green'
         actualResult = RCube.createCube(parm)
         for elementIndex in range(0,9):
             self.assertEqual(expectedResult, actualResult[elementIndex])
