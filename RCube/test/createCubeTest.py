@@ -22,6 +22,6 @@ class createCubeTest(unittest.TestCase):
         actualResult= RCube.createCube(parm)
         elementIndex=0
         for face in expectedFaces:
-            for i in range(0,9):
+            for _ in range(0,9):
                 self.assertEqual(face, actualResult[elementIndex])
                 elementIndex += 1

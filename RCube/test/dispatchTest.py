@@ -100,6 +100,17 @@ class DispatchTest(unittest.TestCase):
         resultDict = self.string2dict(resultString)
         self.assertIn('cube',resultDict)
     
+    def test100_050_ShouldCreateDefaultCubeValue(self):
+        queryString="op=create"
+        resultString = self.httpGetAndResponse(queryString)
+        resultDict = self.string2dict(resultString)
+        actualResult = resultDict['cube']
+        expectedFaces = ['green','yellow','blue','white','red','orange']
+        actualFaceIndex = 0
+        for face in expectedFaces:
+            for _ in range(0,9)
+                self.assertEqual(face, actualResult[actualFaceIndex])
+                actualFaceIndex += 1    
     # Sad path
     
     def test100_900_ShouldReturnErrorOnEmptyParm(self):
