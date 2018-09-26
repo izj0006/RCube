@@ -113,7 +113,7 @@ class DispatchTest(unittest.TestCase):
                 actualFaceIndex += 1
                 
     def test100_060_SpecificExampleNoTwo(self):
-        queryString="op=create&f=f&r=r&b=b&l=l&t=t&u=u"
+        queryString={'op':'create', 'f': 'f','r':'r','b':'b','l':'l','t':'t','u':'u' }
         resultString = self.httpGetAndResponse(queryString)
         resultDict = self.string2dict(resultString)
         actualResult = resultDict['cube']
