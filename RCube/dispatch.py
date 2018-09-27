@@ -6,9 +6,6 @@ def dispatch(parm={}):
     elif(parm['op'] == 'create'):
         httpResponse['status'] = 'created'
         httpResponse['cube']=createCube(parm)
-    elif(parm['t'] == '1'):
-        httpResponse['status'] = 'created'
-        httpResponse['cube']=createCubeOne(parm)
     return httpResponse
     
 def createCube(parm):
