@@ -112,20 +112,17 @@ class DispatchTest(unittest.TestCase):
                 self.assertEqual(face, actualResult[actualFaceIndex])
                 actualFaceIndex += 1
                 
-    #===========================================================================
-    # def test100_060_SpecificExampleNoTwo(self):
-    #     queryString="op=create&f=f&r=r&b=b&l=l&t=t&u=u"
-    #     resultString = self.httpGetAndResponse(queryString)
-    #     resultDict = self.string2dict(resultString)
-    #     actualResult = resultDict['cube']
-    #     expectedFaces = ['f','r','b','l','t','u']
-    #     actualFaceIndex = 0
-    #     for face in expectedFaces:
-    #         for _ in range(0,9):
-    #             if(face=='green'):
-    #                 print('f')
-    #             actualFaceIndex += 1
-    #===========================================================================
+    def test100_060_SpecificExampleNoTwo(self):
+        queryString="op=create&f=f&r=r&b=b&l=l&t=t&u=u"
+        resultString = self.httpGetAndResponse(queryString)
+        resultDict = self.string2dict(resultString)
+        actualResult = resultDict['cube']
+        expectedFaces = ['f','r','b','l','t','u']
+        actualFaceIndex = 0
+        for face in expectedFaces:
+            for _ in range(0,9):
+                
+                actualFaceIndex += 1
                 
 #    Sad path
     
