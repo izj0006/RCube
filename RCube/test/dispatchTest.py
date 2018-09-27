@@ -110,7 +110,6 @@ class DispatchTest(unittest.TestCase):
         for face in expectedFaces:
             for _ in range(0,9):
                 self.assertEqual(face, actualResult[actualFaceIndex])
-                print(actualResult[actualFaceIndex])
                 actualFaceIndex += 1
                 
     def test100_060_SpecificExampleNoTwo(self):
