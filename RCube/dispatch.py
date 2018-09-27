@@ -6,6 +6,9 @@ def dispatch(parm={}):
     elif(parm['op'] == 'create'):
         httpResponse['status'] = 'created'
         httpResponse['cube']=createCube(parm)
+    elif(parm['t'] == '1'):
+        httpResponse['status'] = 'created'
+        httpResponse['cube']=createCubeOne(parm)
     return httpResponse
     
 def createCube(parm):
@@ -27,4 +30,23 @@ def createCube(parm):
           'orange','orange','orange',
           'orange','orange','orange',
           'orange','orange','orange']
+    return cube
+
+def createCubeOne(parm):
+    cube=['f','f','f',
+          'f','f','f',
+          'f','f','f',
+          'r','r','r',
+          'r','r','r',
+          'r','r','r',
+          'b','b','b',
+          'b','b','b',
+          'b','b','b',
+          'l','l','l',
+          'l','l','l',
+          'l','l','l',
+          't','t','t',
+          't','t','t',
+          't','t','t',
+          'u','u','u']
     return cube
