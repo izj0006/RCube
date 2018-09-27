@@ -133,8 +133,7 @@ class DispatchTest(unittest.TestCase):
         actualFaceIndex = 0
         for face in expectedFaces:
             for _ in range(0,9):
-                self.assertEqual(face, actualResult[actualFaceIndex])
-                print(actualResult[actualFaceIndex])
+
                 actualFaceIndex += 1       
                 
     #===========================================================================
