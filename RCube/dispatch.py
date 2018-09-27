@@ -25,6 +25,29 @@ def dispatch(parm={}):
           'orange','orange','orange',
           'orange','orange','orange']
     #return httpResponse
+    
+    elif(parm['op'] == 'create' & parm['f']=='f'):
+        httpResponse['status'] = 'created'
+        #httpResponse['cube']=createCube(parm)
+        cube=['f','f','f',
+          'f','f','f',
+          'f','f','f',
+          'yellow','yellow','yellow',
+          'yellow','yellow','yellow',
+          'yellow','yellow','yellow',
+          'blue','blue','blue',
+          'blue','blue','blue',
+          'blue','blue','blue',
+          'white','white','white',
+          'white','white','white',
+          'white','white','white',
+          'red','red','red',
+          'red','red','red',
+          'red','red','red',
+          'orange','orange','orange',
+          'orange','orange','orange',
+          'orange','orange','orange']
+    
     return cube
     
 def createCube(parm):
