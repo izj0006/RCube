@@ -136,17 +136,17 @@ class DispatchTest(unittest.TestCase):
 
                 actualFaceIndex += 1       
                 
-     def test100_080_SpecificExampleNoFour(self):
-         queryString="op=create&f=f&r=r&b=b&l=l&t=1&under=42"
-         resultString = self.httpGetAndResponse(queryString)
-         resultDict = self.string2dict(resultString)
-         actualResult = resultDict['cube']
-         expectedFaces = ['f','r','b','l','t','u']
-         actualFaceIndex = 0
-         for face in expectedFaces:
-             for _ in range(0,9):
-                 
-                 actualFaceIndex += 1         
+    def test100_080_SpecificExampleNoFour(self):
+        queryString="op=create&f=f&r=r&b=b&l=l&t=1&under=42"
+        resultString = self.httpGetAndResponse(queryString)
+        resultDict = self.string2dict(resultString)
+        actualResult = resultDict['cube']
+        expectedFaces = ['f','r','b','l','t','u']
+        actualFaceIndex = 0
+        for face in expectedFaces:
+            for _ in range(0,9):
+                        
+                actualFaceIndex += 1         
     
     #Sad path
     
