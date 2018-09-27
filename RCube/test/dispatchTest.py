@@ -120,11 +120,9 @@ class DispatchTest(unittest.TestCase):
         expectedFaces = ['f','r','b','l','t','u']
         actualFaceIndex = 0
         for face in expectedFaces:
-            if(actualResult['f'] or actualResult['r'] or actualResult['b'] or actualResult['l'] or actualResult['t'] or actualResult['u'] == face):
-                for _ in range(0,9):
-                    #self.assertEqual(face, actualResult[elementIndex])
-                    print(face)
-                    actualFaceIndex += 1
+            for _ in range(0,9):
+                
+                actualFaceIndex += 1
     
     def test100_070_SpecificExampleNoThree(self):
         queryString="op=create&f=f&r=r&b=b&l=l&t=1"
@@ -146,8 +144,7 @@ class DispatchTest(unittest.TestCase):
         expectedFaces = ['f','r','b','l','t','u']
         actualFaceIndex = 0
         for face in expectedFaces:
-            for _ in range(0,9):
-                        
+            for _ in range(0,9):        
                 actualFaceIndex += 1         
     
     #Sad path
