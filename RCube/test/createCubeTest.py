@@ -17,7 +17,7 @@ class createCubeTest(unittest.TestCase):
     #         self.assertEqual(expectedResult, actualResult[elementIndex])
 
     def test100_630_ShouldCreateMultipleFaceCube(self):
-        parm={'op':'create'}
+        parm={'op':'create','f':'f','r':'r','b':'b','l':'l','t':'t','u':'u'}
         expectedFaces = ['green', 'yellow', 'blue', 'white', 'red', 'orange']
         actualResult= RCube.createCube(parm)
         elementIndex=0
