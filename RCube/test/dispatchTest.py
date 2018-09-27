@@ -1,7 +1,6 @@
 import unittest
 import httplib
 import json
-import RCube.dispatch as RCube
 
 class DispatchTest(unittest.TestCase):
         
