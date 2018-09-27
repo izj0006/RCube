@@ -113,21 +113,7 @@ class DispatchTest(unittest.TestCase):
                 self.assertEqual(face, actualResult[actualFaceIndex])
                 actualFaceIndex += 1
                 
-    #===========================================================================
-    # def test100_060_SpecificExampleNoTwo(self):
-    #     queryString="op=create&f=f&r=r&b=b&l=l&t=t&u=u"
-    #     resultString = self.httpGetAndResponse(queryString)
-    #     resultDict = self.string2dict(resultString)
-    #     actualResult = resultDict['cube']
-    #     expectedFaces = ['f','r','b','l','t','u']
-    #     actualFaceIndex = 0
-    #     for face in expectedFaces:
-    #         for _ in range(0,9):
-    #             
-    #             actualFaceIndex += 1
-    #===========================================================================
-    
-    def test100_630_SpecificExampleNoTwo(self):
+    def test100_060_SpecificExampleNoTwo(self):
         parm={'op':'create','f':'f','r':'r','b':'b','l':'l','t':'t','u':'u'}
         expectedFaces = ['f', 'r', 'b', 'l', 't', 'u']
         actualResult= RCube.createCube(parm)
@@ -136,7 +122,7 @@ class DispatchTest(unittest.TestCase):
             if(parm['f'] or parm['r'] or parm['b'] or parm['l'] or parm['t'] or parm['u'] == face):
                 for _ in range(0,9):
                     #self.assertEqual(face, actualResult[elementIndex])
-                    print(face)
+                    #print(face)
                     elementIndex += 1
     
     def test100_070_SpecificExampleNoThree(self):

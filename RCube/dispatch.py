@@ -1,4 +1,3 @@
-
 def dispatch(parm={}):
     httpResponse = {}
     if(not('op' in parm)):
