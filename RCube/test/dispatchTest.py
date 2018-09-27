@@ -123,8 +123,7 @@ class DispatchTest(unittest.TestCase):
         for face in expectedFaces:
             for _ in range(0,9):
                 if(face==green):
-                    return actualResult[actualFaceIndex]=f
-                print(actualResult[actualFaceIndex])
+                    print(actualResult[actualFaceIndex])
                 actualFaceIndex += 1
                 
 #    Sad path
