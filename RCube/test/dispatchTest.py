@@ -107,46 +107,47 @@ class DispatchTest(unittest.TestCase):
         resultDict = self.string2dict(resultString)
         actualResult = resultDict['cube']
         expectedFaces = ['green','yellow','blue','white','red','orange']
-        actualFaceIndex = 0
+        elementIndex = 0
         for face in expectedFaces:
             for _ in range(0,9):
-                self.assertEqual(face, actualResult[actualFaceIndex])
-                actualFaceIndex += 1
+                self.assertEqual(face, actualResult[elementIndex])
+                elementIndex += 1  
                 
     def test100_060_SpecificExampleNoTwo(self):
-        parm={'op':'create','f':'f','r':'r','b':'b','l':'l','t':'t','u':'u'}
+        queryString="op=create&f=f&r=r&b=b&l=l&b=b&t=t&u=u"
+        resultString = self.httpGetAndResponse(queryString)
+        resultDict = self.string2dict(resultString)
+        actualResult = resultDict['cube']
         expectedFaces = ['f', 'r', 'b', 'l', 't', 'u']
-        actualResult= RCube.createCube(parm)
         elementIndex=0
         for face in expectedFaces:
-            if(parm['f'] or parm['r'] or parm['b'] or parm['l'] or parm['t'] or parm['u'] == face):
-                for _ in range(0,9):
-                    #self.assertEqual(face, actualResult[elementIndex])
-                    #print(face)
-                    elementIndex += 1
+            for _ in range(0,9):
+                self.assertEqual(face, actualResult[elementIndex])
+                elementIndex += 1
     
     def test100_070_SpecificExampleNoThree(self):
         queryString="op=create&f=f&r=r&b=b&l=l&t=1"
         resultString = self.httpGetAndResponse(queryString)
         resultDict = self.string2dict(resultString)
         actualResult = resultDict['cube']
-        expectedFaces = ['f','r','b','l','t','u']
-        actualFaceIndex = 0
+        expectedFaces = ['f','r','b','l','1','orange']
+        elementIndex = 0
         for face in expectedFaces:
             for _ in range(0,9):
-
-                actualFaceIndex += 1       
+                self.assertEqual(face, actualResult[elementIndex])
+                elementIndex += 1       
                 
     def test100_080_SpecificExampleNoFour(self):
         queryString="op=create&f=f&r=r&b=b&l=l&t=1&under=42"
         resultString = self.httpGetAndResponse(queryString)
         resultDict = self.string2dict(resultString)
         actualResult = resultDict['cube']
-        expectedFaces = ['f','r','b','l','t','u']
-        actualFaceIndex = 0
+        expectedFaces = ['f','r','b','l','t','orange']
+        elementIndex = 0
         for face in expectedFaces:
-            for _ in range(0,9):        
-                actualFaceIndex += 1         
+            for _ in range(0,9):
+                self.assertEqual(face, actualResult[elementIndex])
+                elementIndex += 1          
     
     #Sad path
     
