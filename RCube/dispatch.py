@@ -13,6 +13,7 @@ def dispatch(parm={}):
         #cubelist=parm['cube']
         #print cubelist
         print len(parm['cube'])
+        httpResponse['status'] = 'error: cube is not properly sized'
         
     return httpResponse
     
