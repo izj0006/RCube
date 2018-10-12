@@ -8,13 +8,7 @@ def dispatch(parm={}):
         
     elif(parm['op'] == 'check'):
         if(not('cube' in parm)):
-            httpResponse['status'] = 'error: cube must be specified'
-        #if length of cube is less than 54, 'status':'cube is not sized properly
-        #cubelist=parm['cube']
-        cubelist=parm['cube']
-        print len(cubelist)
-        httpResponse['status'] = 'error: cube is not properly sized'
-        
+            httpResponse['status'] = 'error: cube must be specified'        
     return httpResponse
     
 def createCube(parm):
