@@ -1,7 +1,6 @@
 import unittest
 import httplib
 import json
-import RCube.dispatch as RCube
 
 class DispatchTest(unittest.TestCase):
         
@@ -149,6 +148,12 @@ class DispatchTest(unittest.TestCase):
                 self.assertEqual(face, actualResult[elementIndex])
                 elementIndex += 1          
     
+    def test100_090_CubeMustBeSpecified(self):
+        queryString="op=check"
+        resultString = self.httpGetAndResponse(queryString)
+        resultDict = self.string2dict(resultString)
+        self.assertIn('status', resultDict)
+        self.assertEquals('error:',resultDict['status'])
     #Sad path
     
     def test100_900_ShouldReturnErrorOnEmptyParm(self):
