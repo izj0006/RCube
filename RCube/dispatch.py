@@ -12,6 +12,7 @@ def dispatch(parm={}):
         #if length of cube is less than 54, 'status':'cube is not sized properly
         #cubelist=parm['cube']
         #print cubelist
+        print len(parm['cube'])
         
     return httpResponse
     
