@@ -18,7 +18,7 @@ def dispatch(parm={}):
             httpResponse['status'] = 'created'
             httpResponse['cube']=response
             
-    elif(parm['op'] == 'check'):
+    if(parm['op'] == 'check'):
         if(not('cube' in parm)):
             httpResponse['status'] = 'error: cube size issue'
         else:
