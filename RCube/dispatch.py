@@ -1,6 +1,11 @@
+front = 'green'
+right = 'yellow'
+bottom = 'blue'
+left = 'white'
+top = 'red'
+under = 'orange'
 
-
-
+faces = [front, right, bottom, left, top, under]
 
 def dispatch(parm={}):
     httpResponse = {}
@@ -38,14 +43,7 @@ def checkSize(parm):
             #    httpResponse['status'] = 'error: cube is not sized properly'
     return 
     
-def createCube(parm):  
-    
-    front = 'green'
-    right = 'yellow'
-    bottom = 'blue'
-    left = 'white'
-    top = 'red'
-    under = 'orange'
+def createCube(parm):
      
     if('f' in parm):
         front = parm['f']
@@ -61,8 +59,6 @@ def createCube(parm):
         under = parm['u']
 
     response = checkDupeColors(parm)
-    
-    faces = [front, right, bottom, left, top, under]
     
     if(response != 'error: duplicate faces'):
         cube = []
