@@ -20,15 +20,9 @@ def dispatch(parm={}):
     return httpResponse
 
 def checkDupeColors(parm):
-    for indexFace in range(0, 6):
-        for indexFace2 in range(0, 6):
-            if (indexFace != indexFace2):
-                if faces[indexFace] == faces[indexFace2]:
-                    error_message = 'error: duplicate faces'
-                    return error_message
+    return
     
 def createCube(parm):
-     
     if('f' in parm):
         front = parm['f']
     if('r' in parm):
@@ -42,13 +36,19 @@ def createCube(parm):
     if('u' in parm):
         under = parm['u']
 
-    response = checkDupeColors(parm)
+    #response = checkDupeColors(parm)
+    for indexFace in range(0, 6):
+        for indexFace2 in range(0, 6):
+            if (indexFace != indexFace2):
+                if faces[indexFace] == faces[indexFace2]:
+                    error_message = 'error: duplicate faces'
+                    return error_message
     
-    if(response != 'error: duplicate faces'):
-        cube = []
-        for face in faces:
-            for _ in range(0,9):
-                cube.append(face)
+    #if(response != 'error: duplicate faces'):
+    cube = []
+    for face in faces:
+        for _ in range(0,9):
+            cube.append(face)
                     
     return cube
 
