@@ -22,11 +22,7 @@ def dispatch(parm={}):
         httpResponse['status'] = 'checked'
         if(not('cube' in parm)):
             httpResponse['status'] = 'error: cube size issue'
-        else:
-            response = checkSize(parm)
-            if(response != 'error: cube is not sized properly'):
-                httpResponse['status'] = 'size checked'
-                httpResponse['cube']=response
+        
     return httpResponse
 
 def checkDupeColors(parm):
@@ -36,11 +32,6 @@ def checkDupeColors(parm):
                 if(faces[indexFace] == faces[indexFace2]):
                     error_message = 'error: duplicate faces'
                     return error_message
-def checkSize(parm):
-    #check length of cube
-        #if less than 54
-            #    httpResponse['status'] = 'error: cube is not sized properly'
-    return 
     
 def createCube(parm):
     front = 'green'
