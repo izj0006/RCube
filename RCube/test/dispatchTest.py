@@ -165,11 +165,11 @@ class DispatchTest(unittest.TestCase):
         self.assertIn('status', resultDict)
         self.assertEquals('error:',resultDict['status'][0:6])
         
-    def test100_920_CubeMustBeSpecified(self):
-        queryString="op=check"
+    def test100_920_ShouldReturnErrorOnMissingCube(self):
+        queryString="op=check&cube=a"
         resultString = self.httpGetAndResponse(queryString)
         resultDict = self.string2dict(resultString)
-        #self.assertIn('status', resultDict)
+        self.assertIn('status', resultDict)
         self.assertEquals('error:',resultDict['status'][0:6])
 
 
