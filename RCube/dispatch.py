@@ -19,11 +19,10 @@ def dispatch(parm={}):
             httpResponse['cube']=response
             
     if(parm['op'] == 'check'):
+        httpResponse['status'] = 'checked'
         if(not('cube' in parm)):
             httpResponse['status'] = 'error: cube size issue'
-        else:
-            httpResponse['status'] = '54 elements present'
-
+        
     return httpResponse
 
 def checkDupeColors(parm):
