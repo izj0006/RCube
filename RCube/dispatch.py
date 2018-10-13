@@ -1,12 +1,3 @@
-front = 'green'
-right = 'yellow'
-bottom = 'blue'
-left = 'white'
-top = 'red'
-under = 'orange'
-
-faces = [front, right, bottom, left, top, under]
-
 def dispatch(parm={}):
     httpResponse = {}
     if(not('op' in parm)):
@@ -28,7 +19,15 @@ def checkDupeColors(parm):
                     return error_message
     
 def createCube(parm):
-     
+    front = 'green'
+    right = 'yellow'
+    bottom = 'blue'
+    left = 'white'
+    top = 'red'
+    under = 'orange'
+
+    faces = [front, right, bottom, left, top, under]
+ 
     if('f' in parm):
         front = parm['f']
     if('r' in parm):
