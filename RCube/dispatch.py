@@ -1,17 +1,32 @@
-def dispatch(parm={}): 
+front = 'f'
+right = 'r'
+bottom = 'b'
+left = 'l'
+top = 't'
+under = 'u'
+
+faces = [front, right, bottom, left, top, under]
+
+def dispatch(parm={}):
     httpResponse = {}
     if(not('op' in parm)):
         httpResponse['status'] = 'error: missing op'
-    elif(parm['op'] == 'create'):                
+        
+    elif(parm['op'] == 'create'):
         response = createCube(parm)
         if(response != 'error: duplicate faces'):
             httpResponse['status'] = 'created'
-            httpResponse['cube'] = response
-        else:
-            httpResponse['status'] = response             
+            httpResponse['cube']=response
     return httpResponse
 
-#----------inward facing methods----------------
+def checkDupeColors(parm):
+    for indexFace in range(0, 6):
+        for indexFace2 in range(0, 6):
+            if (indexFace != indexFace2):
+                if(faces[indexFace] == faces[indexFace2]):
+                    error_message = 'error: duplicate faces'
+                    return error_message
+    
 def createCube(parm):
     front = 'green'
     right = 'yellow'
@@ -19,6 +34,7 @@ def createCube(parm):
     left = 'white'
     top = 'red'
     under = 'orange'
+    
     if('f' in parm):
         front = parm['f']
     if('r' in parm):
@@ -31,16 +47,13 @@ def createCube(parm):
         top = parm['t']
     if('u' in parm):
         under = parm['u']
-        
-    faces = [front, right, bottom, left, top, under]   
-    for indexFace in range(0, 6):
-        for indexFace2 in range(0, 6):
-            if (indexFace != indexFace2):
-                if faces[indexFace] == faces[indexFace2]:
-                    error_message = 'error: duplicate faces'
-                    return error_message
-    cube = []
-    for face in faces:
-        for _ in range(0,9):
-            cube.append(face)
+
+    response = checkDupeColors(parm)
+    
+    if(response != 'error: duplicate faces'):
+        cube = []
+        for face in faces:
+            for _ in range(0,9):
+                cube.append(face)
+                    
     return cube
