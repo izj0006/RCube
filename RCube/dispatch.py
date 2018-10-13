@@ -21,14 +21,7 @@ def dispatch(parm={}):
     elif(parm['op'] == 'check'):
         if(not('cube' in parm)):
             httpResponse['status'] = 'error: cube must be specified'
-        #=======================================================================
-        # else:
-        #     response = checkSize(parm)
-        #     if(response != 'error: cube is not sized properly'):
-        #         httpResponse['status'] = 'size checked'
-        #         httpResponse['cube']=response
-        #=======================================================================
-                
+
     return httpResponse
 
 def checkDupeColors(parm):
