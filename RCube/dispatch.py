@@ -21,7 +21,7 @@ def dispatch(parm={}):
     elif(parm['op'] == 'check'):
         if(not('cube' in parm)):
             httpResponse['status'] = 'error: cube size issue'
-        else
+        else:
             httpResponse['status'] = '54 elements present'
 
     return httpResponse
