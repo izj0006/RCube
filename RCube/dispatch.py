@@ -38,6 +38,13 @@ def checkSize(parm):
     return error_message
 
 def checkDupeColors(parm):
+    front = 'green'
+    right = 'yellow'
+    bottom = 'blue'
+    left = 'white'
+    top = 'red'
+    under = 'orange'
+    
     for indexFace in range(0, 6):
         for indexFace2 in range(0, 6):
             if (indexFace != indexFace2):
