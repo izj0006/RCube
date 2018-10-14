@@ -67,15 +67,10 @@ def createCube(parm):
     if('u' in parm):
         under = parm['u']
 
-    #response = checkDupeColors(parm)
-    for indexFace in range(0, 6):
-        for indexFace2 in range(0, 6):
-            if (indexFace != indexFace2):
-                if(faces[indexFace] == faces[indexFace2]):
-                    error_message = 'error: duplicate faces'
-                    #return error_message
-    cube = []
-    if(error_message != 'error: duplicate faces'):
+    response = checkDupeColors(parm)
+    
+    if(response != 'error: duplicate faces'):
+        cube = []
         for face in faces:
             for _ in range(0,9):
                 cube.append(face)
