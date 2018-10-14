@@ -24,7 +24,7 @@ def dispatch(parm={}):
             response = checkSize(parm)
             if(response != 'error: cube is not sized properly'):
                 httpResponse['status'] = 'checked'
-                #httpResponse['cube']=response
+                httpResponse['cube']=response
         
     return httpResponse
 
@@ -38,13 +38,6 @@ def checkSize(parm):
     return error_message
 
 def checkDupeColors(parm):
-    front = 'green'
-    right = 'yellow'
-    bottom = 'blue'
-    left = 'white'
-    top = 'red'
-    under = 'orange'
-    
     for indexFace in range(0, 6):
         for indexFace2 in range(0, 6):
             if (indexFace != indexFace2):
