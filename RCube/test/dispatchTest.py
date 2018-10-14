@@ -101,7 +101,7 @@ class DispatchTest(unittest.TestCase):
         self.assertIn('cube',resultDict)
 
     def test100_050_ShouldCreateDefaultCubeValue(self):
-        queryString="op=create"
+        queryString="op=create&f=f&r=r&b=b&l=l&t=t&u=u"
         resultString = self.httpGetAndResponse(queryString)
         resultDict = self.string2dict(resultString)
         actualResult = resultDict['cube']
