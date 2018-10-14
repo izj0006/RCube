@@ -1,9 +1,10 @@
-front = 'f'
-right = 'r'
-bottom = 'b'
-left = 'l'
-top = 't'
-under = 'u'
+front = 'green'
+right = 'yellow'
+bottom = 'blue'
+left = 'white'
+top = 'red'
+under = 'orange'
+    
 
 faces = [front, right, bottom, left, top, under]
 
