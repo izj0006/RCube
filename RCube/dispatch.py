@@ -1,9 +1,9 @@
-front = 'f'
-right = 'r'
-bottom = 'b'
-left = 'l'
-top = 't'
-under = 'u'
+front = ''
+right = ''
+bottom = ''
+left = ''
+top = ''
+under = ''
 
 faces = [front, right, bottom, left, top, under]
 
