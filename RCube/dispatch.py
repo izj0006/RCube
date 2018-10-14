@@ -31,11 +31,11 @@ def dispatch(parm={}):
 def checkSize(parm):
     cube=parm['cube']
     cubelist=cube.split(",")
-    if(len(cubelist)<55):
+    if((len(cubelist))!=54):
         error_message = 'error: cube is not sized properly'
-        return error_message
     else:
-        return
+        error_message = 'error: cube is correctly sized'
+    return error_message
 
 def checkDupeColors(parm):
     for indexFace in range(0, 6):
