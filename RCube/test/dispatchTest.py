@@ -177,13 +177,13 @@ class DispatchTest(unittest.TestCase):
         resultString = self.httpGetAndResponse(queryString)
         resultDict = self.string2dict(resultString)
         self.assertIn('status', resultDict)
-        self.assertEquals('error:',resultDict['status'][0:6])
+        self.assertEqual('error:',resultDict['status'][0:6])
 
     def test100_940_CubeIsNotValid(self):
         queryString="op=check&f=2&r=o&b=g&l=r&t=b&u=y&cube=f,f,f,f,f,b,f,f,f,r,r,r,r,r,r,r,r,r,f,b,b,b,b,b,b,b,b,l,l,l,l,l,l,l,l,l,t,t,t,t,t,t,t,t,t,u,u,u,u,u,u,u,u,u"
         resultString = self.httpGetAndResponse(queryString)
         resultDict = self.string2dict(resultString)
         self.assertIn('status', resultDict)
-        self.assertEquals('error:',resultDict['status'][0:6])
+        self.assertEqual('error:',resultDict['status'][0:6])
         
-    
+        
