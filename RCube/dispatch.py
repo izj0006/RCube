@@ -29,10 +29,13 @@ def dispatch(parm={}):
     return httpResponse
 
 def checkSize(parm):
-    #check length of cube
-        #if less than 54
-            #    httpResponse['status'] = 'error: cube is not sized properly'
-    return 
+    cube=parm['cube']
+    cubelist=cube.split(",")
+    if(len(cubelist)<55):
+        error_message = 'error: cube is not sized properly'
+        return error_message
+    else:
+        return
 
 def checkDupeColors(parm):
     for indexFace in range(0, 6):
