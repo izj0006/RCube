@@ -148,7 +148,17 @@ class DispatchTest(unittest.TestCase):
                 self.assertEqual(face, actualResult[elementIndex])
                 elementIndex += 1          
     
-    
+    def test100_090_CheckIfCubeIsFull(self):
+        queryString="op=check&f=f&b=b&r=r&l=l&t=t&u=u&cube=f,f,f,f,f,f,f,f,f,r,r,r,r,r,r,r,r,r,b,b,b,b,b,b,b,b,b,l,l,l,l,l,l,l,l,l,t,t,t,t,t,t,t,t,t,u,u,u,u,u,u,u,u,u"
+        resultString = self.httpGetAndResponse(queryString)
+        resultDict = self.string2dict(resultString)
+        actualResult = resultDict['cube']
+        expectedFaces = ['f','r','b','l','t','u']
+        elementIndex = 0
+        for face in expectedFaces:
+            for _ in range(0,9):
+                self.assertEqual(face, actualResult[elementIndex])
+                elementIndex += 1
     #Sad path
     
     def test100_900_ShouldReturnErrorOnEmptyParm(self):
@@ -186,5 +196,6 @@ class DispatchTest(unittest.TestCase):
         resultDict = self.string2dict(resultString)
         self.assertIn('status', resultDict)
         self.assertEquals('error:',resultDict['status'][0:6])
+        
         
         
