@@ -26,7 +26,7 @@ def dispatch(parm={}):
                 httpResponse['status'] = 'checked'
                 httpResponse['cube']=response
             else:
-                httpResponse['status'] = response
+                httpResponse['status'] = 'error: cube is not sized properly'
         
     return httpResponse
 
