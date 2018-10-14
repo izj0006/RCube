@@ -11,17 +11,20 @@ def dispatch(parm={}):
     httpResponse = {}
     if(not('op' in parm)):
         httpResponse['status'] = 'error: missing op'
-        
     elif(parm['op'] == 'create'):
         response = createCube(parm)
         if(response != 'error: duplicate faces'):
             httpResponse['status'] = 'created'
             httpResponse['cube']=response
-            
     elif(parm['op'] == 'check'):
         httpResponse['status'] = 'checked'
         if(not('cube' in parm)):
             httpResponse['status'] = 'error: cube size issue'
+        else:
+            response = checkSize(parm)
+            if(response != 'error: cube is not sized properly'):
+                httpResponse['status'] = 'checked'
+                httpResponse['cube']=response
         
     return httpResponse
 
