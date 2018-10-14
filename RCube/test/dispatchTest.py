@@ -109,7 +109,7 @@ class DispatchTest(unittest.TestCase):
         elementIndex = 0
         for face in expectedFaces:
             for _ in range(0,9):
-                self.assertEqual(face, actualResult[elementIndex])
+                self.assertEquals(face, actualResult[elementIndex])
                 elementIndex += 1  
                 
     def test100_060_SpecificExampleNoTwo(self):
@@ -133,7 +133,7 @@ class DispatchTest(unittest.TestCase):
         elementIndex = 0
         for face in expectedFaces:
             for _ in range(0,9):
-                self.assertEqual(face, actualResult[elementIndex])
+                self.assertEquals(face, actualResult[elementIndex])
                 elementIndex += 1       
                 
     def test100_080_SpecificExampleNoFour(self):
@@ -145,7 +145,7 @@ class DispatchTest(unittest.TestCase):
         elementIndex = 0
         for face in expectedFaces:
             for _ in range(0,9):
-                self.assertEqual(face, actualResult[elementIndex])
+                self.assertEquals(face, actualResult[elementIndex])
                 elementIndex += 1          
     
     
@@ -185,6 +185,6 @@ class DispatchTest(unittest.TestCase):
         resultString = self.httpGetAndResponse(queryString)
         resultDict = self.string2dict(resultString)
         self.assertIn('status', resultDict)
-        self.assertEqual('error:',resultDict['status'][0:6])
+        self.assertEquals('error:',resultDict['status'][0:6])
         
         
