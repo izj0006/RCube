@@ -190,5 +190,5 @@ class DispatchTest(unittest.TestCase):
         resultString = self.httpGetAndResponse(queryString)
         resultDict = self.string2dict(resultString)
         self.assertIn('status', resultDict)
-        self.assertEquals('error:',resultDict['status'][0:6])
+        self.assertEqual('error:',resultDict['status'][0:6])
         
