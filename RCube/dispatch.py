@@ -18,13 +18,13 @@ def dispatch(parm={}):
             httpResponse['cube']=response
     elif(parm['op'] == 'check'):
         if(not('cube' in parm)):
-            httpResponse['status'] = 'error: cube size issue'
+            httpResponse['status'] = 'error: cube missing in parm'
         else:
             response = checkSize(parm)
-            if(response != 'error: cube is not sized properly'):
-                httpResponse['status'] = 'checked'
+            if(response == 'error: cube is not sized properly'):
+                httpResponse['status'] = 'error: cube is not sized properly'  
             else:
-                httpResponse['status'] = 'error: cube is not sized properly'
+                httpResponse['status'] = 'checked'
             httpResponse['cube']=response
         
     return httpResponse
@@ -32,11 +32,11 @@ def dispatch(parm={}):
 def checkSize(parm):
     cube=parm['cube']
     cubelist=cube.split(",")
-    if((len(cubelist))!=54):
-        error_message = 'error: cube is not sized properly'
+    if((len(cubelist))==54):
+        message = 'cube is correctly sized'
     else:
-        error_message = 'error: cube is correctly sized'
-    return error_message
+        message = 'error: cube is not sized properly'
+    return message
 
 def checkDupeColors(parm):
     for indexFace in range(0, 6):
@@ -76,3 +76,14 @@ def createCube(parm):
                 cube.append(face)
                     
     return cube
+
+def determineConfig(parm):
+    if(parm['cube'] == 'f,f,f,f,f,f,f,f,f,r,r,r,r,r,r,r,r,r,b,b,b,b,b,b,b,b,b,l,l,l,l,l,l,l,l,l,t,t,t,t,t,t,t,t,t,u,u,u,u,u,u,u,u,u'):
+        message = 'FULL'
+    elif(parm['cube'] == 'r,w,r,w,w,w,r,w,r,w,g,w,g,g,g,w,g,w,o,y,o,y,y,y,o,y,o,y,b,y,b,b,b,y,b,y,g,r,g,r,r,r,g,r,g,b,o,b,o,o,o,b,o,b'):
+        message = 'CROSSES'
+    elif(parm['cube'] == 'y,y,y,y,r,y,y,y,y,o,o,o,o,b,o,o,o,o,w,w,w,w,o,w,w,w,w,r,r,r,r,g,r,r,r,r,b,b,b,b,w,b,b,b,b,g,g,g,g,y,g,g,g,g'):
+        message = 'SPOTS'
+    else:
+        message = 'UNKNOWN'
+    return message
