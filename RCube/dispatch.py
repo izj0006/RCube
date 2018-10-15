@@ -69,7 +69,6 @@ def createCube(parm):
         under = parm['u']
 
     response = checkDupeColors(parm)
-    
     if(response != 'error: duplicate faces'):
         cube = []
         for face in faces:

@@ -205,5 +205,3 @@ class DispatchTest(unittest.TestCase):
         resultDict = self.string2dict(resultString)
         self.assertIn('status', resultDict)
         self.assertEqual('error:',resultDict['status'][0:6])
-
-        
