@@ -85,14 +85,14 @@ class DispatchTest(unittest.TestCase):
         resultString = self.httpGetAndResponse(queryString)
         resultDict = self.string2dict(resultString)
         self.assertIn('status', resultDict)
-        self.assertEqual('error:',resultDict['status'][0:6])
+        self.assertEquals('error:',resultDict['status'][0:6])
     
     def test100_030_ShouldCreateDefaultCubeStatus(self):
         queryString="op=create"
         resultString = self.httpGetAndResponse(queryString)
         resultDict = self.string2dict(resultString)
         self.assertIn('status',resultDict)
-        self.assertEqual('created',resultDict['status'][0:7])
+        self.assertEquals('created',resultDict['status'][0:7])
 
     def test100_040_ShouldCreateDefaultCubeKey(self):
         queryString="op=create"
@@ -109,7 +109,7 @@ class DispatchTest(unittest.TestCase):
         elementIndex = 0
         for face in expectedFaces:
             for _ in range(0,9):
-                self.assertEqual(face, actualResult[elementIndex])
+                self.assertEquals(face, actualResult[elementIndex])
                 elementIndex += 1  
                 
     def test100_060_SpecificExampleNoTwo(self):
@@ -121,7 +121,7 @@ class DispatchTest(unittest.TestCase):
         elementIndex=0
         for face in expectedFaces:
             for _ in range(0,9):
-                self.assertEqual(face, actualResult[elementIndex])
+                self.assertEquals(face, actualResult[elementIndex])
                 elementIndex += 1
     
     def test100_070_SpecificExampleNoThree(self):
@@ -133,7 +133,7 @@ class DispatchTest(unittest.TestCase):
         elementIndex = 0
         for face in expectedFaces:
             for _ in range(0,9):
-                self.assertEqual(face, actualResult[elementIndex])
+                self.assertEquals(face, actualResult[elementIndex])
                 elementIndex += 1       
                 
     def test100_080_SpecificExampleNoFour(self):
@@ -145,7 +145,7 @@ class DispatchTest(unittest.TestCase):
         elementIndex = 0
         for face in expectedFaces:
             for _ in range(0,9):
-                self.assertEqual(face, actualResult[elementIndex])
+                self.assertEquals(face, actualResult[elementIndex])
                 elementIndex += 1          
     
     def test100_090_CheckIfCubeIsFull(self):
@@ -153,28 +153,28 @@ class DispatchTest(unittest.TestCase):
         resultString = self.httpGetAndResponse(queryString)
         resultDict = self.string2dict(resultString)
         self.assertIn('status', resultDict)
-        self.assertEqual('error:',resultDict['status'][0:7])
+        self.assertEquals('error:',resultDict['status'][0:7])
         
     def test100_100_CheckIfCubeIsCrosses(self):
         queryString="op=check&f=f&b=b&r=r&l=l&t=t&u=u&cube=r,w,r,w,w,w,r,w,r,w,g,w,g,g,g,w,g,w,o,y,o,y,y,y,o,y,o,y,b,y,b,b,b,y,b,y,g,r,g,r,r,r,g,r,g,b,o,b,o,o,o,b,o,b"
         resultString = self.httpGetAndResponse(queryString)
         resultDict = self.string2dict(resultString)
         self.assertIn('status', resultDict)
-        self.assertEqual('error:',resultDict['status'][0:7])
+        self.assertEquals('error:',resultDict['status'][0:7])
         
     def test100_110_CheckIfCubeIsSpots(self):
         queryString="op=check&f=f&b=b&r=r&l=l&t=t&u=u&cube=y,y,y,y,r,y,y,y,y,o,o,o,o,b,o,o,o,o,w,w,w,w,o,w,w,w,w,r,r,r,r,g,r,r,r,r,b,b,b,b,w,b,b,b,b,g,g,g,g,y,g,g,g,g"
         resultString = self.httpGetAndResponse(queryString)
         resultDict = self.string2dict(resultString)
         self.assertIn('status', resultDict)
-        self.assertEqual('error:',resultDict['status'][0:7]) 
+        self.assertEquals('error:',resultDict['status'][0:7]) 
         
     def test100_120_CheckIfCubeIsUnknown(self):
         queryString="op=check&f=f&b=b&r=r&l=l&t=t&u=u&cube=f,f,f,f,f,b,f,f,f,r,r,r,r,r,r,r,r,r,f,b,b,b,b,b,b,b,b,l,l,l,l,l,l,l,l,l,t,t,t,t,t,t,t,t,t,u,u,u,u,u,u,u,u,u"
         resultString = self.httpGetAndResponse(queryString)
         resultDict = self.string2dict(resultString)
         self.assertIn('status', resultDict)
-        self.assertEqual('error:',resultDict['status'][0:7])   
+        self.assertEquals('error:',resultDict['status'][0:7])   
         
     #Sad path
     
@@ -183,14 +183,14 @@ class DispatchTest(unittest.TestCase):
         resultString = self.httpGetAndResponse(queryString)
         resultDict = self.string2dict(resultString)
         self.assertIn('status', resultDict)
-        self.assertEqual('error:',resultDict['status'][0:6])
+        self.assertEquals('error:',resultDict['status'][0:6])
     
     def test100_910_ShouldReturnErrorOnMissingOp(self):
         queryString="f=red"
         resultString = self.httpGetAndResponse(queryString)
         resultDict = self.string2dict(resultString)
         self.assertIn('status', resultDict)
-        self.assertEqual('error:',resultDict['status'][0:6])
+        self.assertEquals('error:',resultDict['status'][0:6])
         
     def test100_920_ShouldReturnErrorOnMissingCubeInCheck(self):
         queryString="op=check"
@@ -204,11 +204,11 @@ class DispatchTest(unittest.TestCase):
         resultString = self.httpGetAndResponse(queryString)
         resultDict = self.string2dict(resultString)
         self.assertIn('status', resultDict)
-        self.assertEqual('error:',resultDict['status'][0:6])
+        self.assertEquals('error:',resultDict['status'][0:6])
         
     def test100_940_ShouldReturnErrorOnMissingCubeInRotate(self):
         queryString="op=rotate"
         resultString = self.httpGetAndResponse(queryString)
         resultDict = self.string2dict(resultString)
         self.assertIn('status', resultDict)
-        self.assertEqual('error:',resultDict['status'][0:6])
+        self.assertEquals('error:',resultDict['status'][0:6])
