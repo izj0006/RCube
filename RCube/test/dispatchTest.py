@@ -121,7 +121,9 @@ class DispatchTest(unittest.TestCase):
         elementIndex=0
         for face in expectedFaces:
             for _ in range(0,9):
-                self.assertEqual(face, actualResult[elementIndex])
+                #self.assertEqual(face, actualResult[elementIndex])
+                print("face",face)
+                print("actualResult",actualResult[elementIndex])
                 elementIndex += 1
     
     def test100_070_SpecificExampleNoThree(self):
