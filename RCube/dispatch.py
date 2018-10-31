@@ -6,6 +6,8 @@ top = 'red'
 under = 'orange'
     
 faces = [front, right, bottom, left, top, under]
+corners = []
+edges = []
 
 def dispatch(parm={}):
     httpResponse = {}
@@ -18,16 +20,19 @@ def dispatch(parm={}):
             httpResponse['cube']=response
     elif(parm['op'] == 'check'):
         if(not('cube' in parm)):
-            httpResponse['status'] = 'error: cube missing in parm'
+            httpResponse['status'] = 'cube missing in parm'
         else:
             response = checkSize(parm)
             if(response == 'error: cube is not sized properly'):
-                httpResponse['status'] = 'error: cube is not sized properly'  
+                httpResponse['status'] = 'cube is not sized properly'  
             else:
                 httpResponse['status'] = 'checked'
                 response = determineConfig(parm)
             httpResponse['cube']=response
         
+    elif(parm['op'] == 'rotate'):
+        if(not('cube' in parm)):
+            httpResponse['status'] = 'cube missing in parm'
     return httpResponse
 
 def checkSize(parm):
