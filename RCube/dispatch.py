@@ -23,7 +23,7 @@ def dispatch(parm={}):
             httpResponse['status'] = 'cube missing in parm'
         else:
             response = checkSize(parm)
-            if(response == 'error: cube is not sized properly'):
+            if(response == 'cube is not sized properly'):
                 httpResponse['status'] = 'cube is not sized properly'  
             else:
                 httpResponse['status'] = 'checked'
@@ -41,7 +41,7 @@ def checkSize(parm):
     if((len(cubelist))==54):
         message = 'cube is correctly sized'
     else:
-        message = 'error: cube is not sized properly'
+        message = 'cube is not sized properly'
     return message
 
 def checkDupeColors(parm):
