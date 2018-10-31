@@ -198,17 +198,24 @@ class DispatchTest(unittest.TestCase):
         resultDict = self.string2dict(resultString)
         self.assertIn('status', resultDict)
         self.assertEquals('error:',resultDict['status'][0:6])
+        
+    def test100_930_ShouldReturnErrorOnMissingCubeInRotate(self):
+        queryString="op=rotate"
+        resultString = self.httpGetAndResponse(queryString)
+        resultDict = self.string2dict(resultString)
+        self.assertIn('status', resultDict)
+        self.assertEquals('error:',resultDict['status'][0:6])
 
-    def test100_930_CubeIsNotSizedProperly(self):
+    def test100_940_CubeIsNotSizedProperly(self):
         queryString="op=check&f=2&r=o&b=g&l=r&t=b&u=y&cube=y,y,b,b,o,g,o,b,w,r"
         resultString = self.httpGetAndResponse(queryString)
         resultDict = self.string2dict(resultString)
         self.assertIn('status', resultDict)
         self.assertEquals('error:',resultDict['status'][0:6])
         
-    def test100_940_ShouldReturnErrorOnMissingCubeInRotate(self):
-        queryString="op=rotate"
+    def test100_950_ShouldReturnErrorFaceIsUnknown(self):
+        queryString="op=rotate&f=g&r=r&b=b&l=o&t=w&u=y&cube=g,g,g,g,g,g,g,g,g,r,r,r,r,r,r,r,r,r,b,b,b,b,b,b,b,b,b,o,o,o,o,o,o,o,o,o,w,w,w,w,w,w,w,w,w,y,y,y,y,y,y,y,y,y&face=w        "
         resultString = self.httpGetAndResponse(queryString)
         resultDict = self.string2dict(resultString)
         self.assertIn('status', resultDict)
-        self.assertEquals('error:',resultDict['status'][0:6])
+        self.assertEquals('error:',resultDict['status'])

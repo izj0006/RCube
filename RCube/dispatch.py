@@ -23,6 +23,13 @@ def dispatch(parm={}):
                     httpResponse['status'] = 'checked'
                     response = determineConfig(parm)
                     httpResponse['cube']=response
+            elif(parm['op'] == 'rotate'):
+                face=['f','F','r','R','b','B','l','L','t','T','u','U']
+                if(not('face' in parm)):
+                    httpResponse['status'] = 'error: missing face'
+                else:
+                    if(not(parm['face'] in face)):
+                    httpResponse['status']='error: face is unknown'    
     return httpResponse
 
 def checkSize(parm):
