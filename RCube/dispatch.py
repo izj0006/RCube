@@ -13,27 +13,23 @@ def dispatch(parm={}):
     httpResponse = {}
     if(not('op' in parm)):
         httpResponse['status'] = 'error: missing op'
-    elif(parm['op'] == 'create'):
-        response = createCube(parm)
-        if(response != 'error: duplicate faces'):
-            httpResponse['status'] = 'created'
-            httpResponse['cube']=response
-    elif(parm['op'] == 'check'):
+    else:
         if(not('cube' in parm)):
-            httpResponse['status'] = 'cube missing in parm'
+            httpResponse['status'] = 'error: missing cube'
         else:
-            response = checkSize(parm)
-            if(response == 'cube is not sized properly'):
-                httpResponse['status'] = 'cube is not sized properly'  
-            else:
-                httpResponse['status'] = 'checked'
-                response = determineConfig(parm)
-            httpResponse['cube']=response
-        
-    elif(parm['op'] == 'rotate'):
-        if(not('cube' in parm)):
-            httpResponse['status'] = 'cube missing in parm'
-            
+            if(parm['op'] == 'create'):
+                response = createCube(parm)
+                if(response != 'error: duplicate faces'):
+                    httpResponse['status'] = 'created'
+                    httpResponse['cube']=response
+            elif(parm['op'] == 'check'):
+                response = checkSize(parm)
+                if(response == 'cube is not sized properly'):
+                    httpResponse['status'] = 'cube is not sized properly'  
+                else:
+                    httpResponse['status'] = 'checked'
+                    response = determineConfig(parm)
+                    httpResponse['cube']=response
     return httpResponse
 
 def checkSize(parm):
