@@ -160,21 +160,21 @@ class DispatchTest(unittest.TestCase):
         resultString = self.httpGetAndResponse(queryString)
         resultDict = self.string2dict(resultString)
         self.assertIn('status', resultDict)
-        self.assertEqual('error:',resultDict['status'][0:6])
+        self.assertEqual('error:',resultDict['status'][0:7])
         
     def test100_110_CheckIfCubeIsSpots(self):
         queryString="op=check&f=f&b=b&r=r&l=l&t=t&u=u&cube=y,y,y,y,r,y,y,y,y,o,o,o,o,b,o,o,o,o,w,w,w,w,o,w,w,w,w,r,r,r,r,g,r,r,r,r,b,b,b,b,w,b,b,b,b,g,g,g,g,y,g,g,g,g"
         resultString = self.httpGetAndResponse(queryString)
         resultDict = self.string2dict(resultString)
         self.assertIn('status', resultDict)
-        self.assertEqual('error:',resultDict['status'][0:6]) 
+        self.assertEqual('error:',resultDict['status'][0:7]) 
         
     def test100_120_CheckIfCubeIsUnknown(self):
         queryString="op=check&f=f&b=b&r=r&l=l&t=t&u=u&cube=f,f,f,f,f,b,f,f,f,r,r,r,r,r,r,r,r,r,f,b,b,b,b,b,b,b,b,l,l,l,l,l,l,l,l,l,t,t,t,t,t,t,t,t,t,u,u,u,u,u,u,u,u,u"
         resultString = self.httpGetAndResponse(queryString)
         resultDict = self.string2dict(resultString)
         self.assertIn('status', resultDict)
-        self.assertEqual('error:',resultDict['status'][0:6])   
+        self.assertEqual('error:',resultDict['status'][0:7])   
         
     #Sad path
     
