@@ -153,7 +153,7 @@ class DispatchTest(unittest.TestCase):
         resultString = self.httpGetAndResponse(queryString)
         resultDict = self.string2dict(resultString)
         self.assertIn('status', resultDict)
-        self.assertEqual('error:',resultDict['status'][0:6])
+        self.assertEqual('error:',resultDict['status'][0:7])
         
     def test100_100_CheckIfCubeIsCrosses(self):
         queryString="op=check&f=f&b=b&r=r&l=l&t=t&u=u&cube=r,w,r,w,w,w,r,w,r,w,g,w,g,g,g,w,g,w,o,y,o,y,y,y,o,y,o,y,b,y,b,b,b,y,b,y,g,r,g,r,r,r,g,r,g,b,o,b,o,o,o,b,o,b"
