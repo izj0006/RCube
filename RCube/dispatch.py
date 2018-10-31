@@ -33,6 +33,7 @@ def dispatch(parm={}):
     elif(parm['op'] == 'rotate'):
         if(not('cube' in parm)):
             httpResponse['status'] = 'cube missing in parm'
+            
     return httpResponse
 
 def checkSize(parm):
@@ -53,7 +54,12 @@ def checkDupeColors(parm):
                     return error_message
     
 def createCube(parm):
-    
+    front = 'green'
+    right = 'yellow'
+    bottom = 'blue'
+    left = 'white'
+    top = 'red'
+    under = 'orange'
     
     if('f' in parm):
         front = parm['f']

@@ -121,9 +121,7 @@ class DispatchTest(unittest.TestCase):
         elementIndex=0
         for face in expectedFaces:
             for _ in range(0,9):
-                #self.assertEqual(face, actualResult[elementIndex])
-                print("face",face)
-                print("actualResult",actualResult[elementIndex])
+                self.assertEqual(face, actualResult[elementIndex])
                 elementIndex += 1
     
     def test100_070_SpecificExampleNoThree(self):
@@ -194,7 +192,7 @@ class DispatchTest(unittest.TestCase):
         self.assertIn('status', resultDict)
         self.assertEqual('error:',resultDict['status'][0:6])
         
-    def test100_920_ShouldReturnErrorOnMissingCube(self):
+    def test100_920_ShouldReturnErrorOnMissingCubeInCheck(self):
         queryString="op=check"
         resultString = self.httpGetAndResponse(queryString)
         resultDict = self.string2dict(resultString)
@@ -203,6 +201,13 @@ class DispatchTest(unittest.TestCase):
 
     def test100_930_CubeIsNotSizedProperly(self):
         queryString="op=check&f=2&r=o&b=g&l=r&t=b&u=y&cube=y,y,b,b,o,g,o,b,w,r"
+        resultString = self.httpGetAndResponse(queryString)
+        resultDict = self.string2dict(resultString)
+        self.assertIn('status', resultDict)
+        self.assertEqual('error:',resultDict['status'][0:6])
+        
+    def test100_940_ShouldReturnErrorOnMissingCubeInRotate(self):
+        queryString="op=rotate"
         resultString = self.httpGetAndResponse(queryString)
         resultDict = self.string2dict(resultString)
         self.assertIn('status', resultDict)
