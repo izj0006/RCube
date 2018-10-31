@@ -10,7 +10,7 @@ corners = []
 edges = []
 
 def dispatch(parm={}):
-    httpResponse = {}
+    httpResponse = {'status'}
     if(not('op' in parm)):
         httpResponse['status'] = 'error: missing op'
     else:
