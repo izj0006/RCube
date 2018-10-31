@@ -53,12 +53,7 @@ def checkDupeColors(parm):
                     return error_message
     
 def createCube(parm):
-    front = 'green'
-    right = 'yellow'
-    bottom = 'blue'
-    left = 'white'
-    top = 'red'
-    under = 'orange'
+    
     
     if('f' in parm):
         front = parm['f']
