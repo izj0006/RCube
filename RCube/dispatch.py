@@ -1,3 +1,11 @@
+front = 'green'
+right = 'yellow'
+bottom = 'blue'
+left = 'white'
+top = 'red'
+under = 'orange'
+faces = [front, right, bottom, left, top, under]
+
 def dispatch(parm={}): 
     httpResponse = {}
     if(not('op' in parm)):
@@ -12,12 +20,7 @@ def dispatch(parm={}):
     return httpResponse
 #----------inward facing methods----------------
 def createCube(parm):
-    front = 'green'
-    right = 'yellow'
-    bottom = 'blue'
-    left = 'white'
-    top = 'red'
-    under = 'orange'
+    
     if('f' in parm):
         front = parm['f']
     if('r' in parm):
@@ -31,7 +34,7 @@ def createCube(parm):
     if('u' in parm):
         under = parm['u']
         
-    faces = [front, right, bottom, left, top, under]   
+       
     for indexFace in range(0, 6):
         for indexFace2 in range(0, 6):
             if (indexFace != indexFace2):
