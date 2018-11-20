@@ -146,47 +146,8 @@ class DispatchTest(unittest.TestCase):
         for face in expectedFaces:
             for _ in range(0,9):
                 self.assertEquals(face, actualResult[elementIndex])
-                elementIndex += 1          
-    
-    def test100_090_CheckIfCubeIsFull(self):
-        queryString="op=check&f=f&b=b&r=r&l=l&t=t&u=u&cube=f,f,f,f,f,f,f,f,f,r,r,r,r,r,r,r,r,r,b,b,b,b,b,b,b,b,b,l,l,l,l,l,l,l,l,l,t,t,t,t,t,t,t,t,t,u,u,u,u,u,u,u,u,u"
-        resultString = self.httpGetAndResponse(queryString)
-        resultDict = self.string2dict(resultString)
-        self.assertIn('status', resultDict)
-        self.assertEquals('error:',resultDict['status'][0:7])
-        
-    def test100_100_CheckIfCubeIsCrosses(self):
-        queryString="op=check&f=f&b=b&r=r&l=l&t=t&u=u&cube=r,w,r,w,w,w,r,w,r,w,g,w,g,g,g,w,g,w,o,y,o,y,y,y,o,y,o,y,b,y,b,b,b,y,b,y,g,r,g,r,r,r,g,r,g,b,o,b,o,o,o,b,o,b"
-        resultString = self.httpGetAndResponse(queryString)
-        resultDict = self.string2dict(resultString)
-        self.assertIn('status', resultDict)
-        self.assertEquals('error:',resultDict['status'][0:7])
-        
-    def test100_110_CheckIfCubeIsSpots(self):
-        queryString="op=check&f=f&b=b&r=r&l=l&t=t&u=u&cube=y,y,y,y,r,y,y,y,y,o,o,o,o,b,o,o,o,o,w,w,w,w,o,w,w,w,w,r,r,r,r,g,r,r,r,r,b,b,b,b,w,b,b,b,b,g,g,g,g,y,g,g,g,g"
-        resultString = self.httpGetAndResponse(queryString)
-        resultDict = self.string2dict(resultString)
-        self.assertIn('status', resultDict)
-        self.assertEquals('error:',resultDict['status'][0:7]) 
-        
-    def test100_120_CheckIfCubeIsUnknown(self):
-        queryString="op=check&f=f&b=b&r=r&l=l&t=t&u=u&cube=f,f,f,f,f,b,f,f,f,r,r,r,r,r,r,r,r,r,f,b,b,b,b,b,b,b,b,l,l,l,l,l,l,l,l,l,t,t,t,t,t,t,t,t,t,u,u,u,u,u,u,u,u,u"
-        resultString = self.httpGetAndResponse(queryString)
-        resultDict = self.string2dict(resultString)
-        self.assertIn('status', resultDict)
-        self.assertEquals('error:',resultDict['status'][0:7])   
-        
-    def test100_130_RotateWithFaceEqualsFOne(self):
-        queryString="op=rotate&f=g&r=r&b=b&l=o&t=w&u=y&cube=g,g,g,g,g,g,g,g,g,r,r,r,r,r,r,r,r,r,b,b,b,b,b,b,b,b,b, o,o,o,o,o,o,o,o,o,w,w,w,w,w,w,w,w,w,y,y,y,y,y,y,y,y,y&face=F"
-        resultString = self.httpGetAndResponse(queryString)
-        resultDict = self.string2dict(resultString)
-        self.assertIn('status', resultDict)
-        
-    def test100_130_RotateWithFaceEqualsFTwo(self):
-        queryString="op=rotate&f=g&r=r&b=b&l=o&t=w&u=y&cube=g,g,g,g,g,g,g,g,g,r,r,r,r,r,r,r,r,r,b,b,b,b,b,b,b,b,b, o,o,o,o,o,o,o,o,o,w,w,w,w,w,w,w,w,w,y,y,y,y,y,y,y,y,y&face=f"
-        resultString = self.httpGetAndResponse(queryString)
-        resultDict = self.string2dict(resultString)
-        self.assertIn('status', resultDict)
+                elementIndex += 1
+                
     #Sad path
     
     def test100_900_ShouldReturnErrorOnEmptyParm(self):
@@ -202,31 +163,3 @@ class DispatchTest(unittest.TestCase):
         resultDict = self.string2dict(resultString)
         self.assertIn('status', resultDict)
         self.assertEquals('error:',resultDict['status'][0:6])
-        
-    def test100_920_ShouldReturnErrorOnMissingCubeInCheck(self):
-        queryString="op=check"
-        resultString = self.httpGetAndResponse(queryString)
-        resultDict = self.string2dict(resultString)
-        self.assertIn('status', resultDict)
-        self.assertEquals('error:',resultDict['status'][0:6])
-        
-    def test100_930_ShouldReturnErrorOnMissingCubeInRotate(self):
-        queryString="op=rotate"
-        resultString = self.httpGetAndResponse(queryString)
-        resultDict = self.string2dict(resultString)
-        self.assertIn('status', resultDict)
-        self.assertEquals('error:',resultDict['status'][0:6])
-
-    def test100_940_CubeIsNotSizedProperly(self):
-        queryString="op=check&f=2&r=o&b=g&l=r&t=b&u=y&cube=y,y,b,b,o,g,o,b,w,r"
-        resultString = self.httpGetAndResponse(queryString)
-        resultDict = self.string2dict(resultString)
-        self.assertIn('status', resultDict)
-        self.assertEquals('error:',resultDict['status'][0:6])
-        
-    def test100_950_ShouldReturnErrorFaceIsUnknown(self):
-        queryString="op=rotate&f=g&r=r&b=b&l=o&t=w&u=y&cube=g,g,g,g,g,g,g,g,g,r,r,r,r,r,r,r,r,r,b,b,b,b,b,b,b,b,b,o,o,o,o,o,o,o,o,o,w,w,w,w,w,w,w,w,w,y,y,y,y,y,y,y,y,y&face=w        "
-        resultString = self.httpGetAndResponse(queryString)
-        resultDict = self.string2dict(resultString)
-        self.assertIn('status', resultDict)
-        self.assertEquals('error:',resultDict['status'])
