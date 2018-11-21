@@ -148,6 +148,8 @@ class DispatchTest(unittest.TestCase):
                 self.assertEquals(face, actualResult[elementIndex])
                 elementIndex += 1
                 
+    #happy path assignment 5
+                
     #Sad path assignment 4
     
     def test100_900_ShouldReturnErrorOnEmptyParm(self):
@@ -159,6 +161,15 @@ class DispatchTest(unittest.TestCase):
     
     def test100_910_ShouldReturnErrorOnMissingOp(self):
         queryString="f=red"
+        resultString = self.httpGetAndResponse(queryString)
+        resultDict = self.string2dict(resultString)
+        self.assertIn('status', resultDict)
+        self.assertEquals('error:',resultDict['status'][0:6])
+        
+    #sad path assignment 5
+    
+    def test100_920_ShouldReturnErrorOnMissingCube(self):
+        queryString="op=check"
         resultString = self.httpGetAndResponse(queryString)
         resultDict = self.string2dict(resultString)
         self.assertIn('status', resultDict)
