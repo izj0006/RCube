@@ -16,7 +16,10 @@ def dispatch(parm={}):
             httpResponse['status'] = 'created'
             httpResponse['cube'] = response
         else:
-            httpResponse['status'] = response             
+            httpResponse['status'] = response
+    elif(parm['op'] == 'check'):
+        if(not('cube' in parm)):
+            httpResponse['status'] = 'error: missing cube'           
     return httpResponse
 
 #----------inward facing methods----------------
