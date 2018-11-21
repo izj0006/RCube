@@ -25,10 +25,10 @@ def dispatch(parm={}):
             response = checkSize(parm)
             if(response == 'error: invalid size'):
                 httpResponse['status'] = response
-        else:
-            httpResponse['status'] = 'checked'
-            response = determineConfig(parm)
-            httpResponse['cube']=response
+            else:
+                httpResponse['status'] = 'checked'
+                response = determineConfig(parm)
+                httpResponse['cube']=response
             
     return httpResponse
 
@@ -48,6 +48,9 @@ def duplicateFaces(parm):
                 if faces[indexFace] == faces[indexFace2]:
                     error_message = 'error: duplicate faces'
                     return error_message
+
+def determineConfig(parm):
+    return
 
 def createCube(parm):
     if('f' in parm):
