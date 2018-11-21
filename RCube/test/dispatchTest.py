@@ -73,7 +73,7 @@ class DispatchTest(unittest.TestCase):
 # Note:  These tests require an active web service
 #
 #
-# Happy path
+# Happy path assignment 4
     def test100_010_ShouldReturnSuccessKey(self):
         queryString="op=create"
         resultString = self.httpGetAndResponse(queryString)
@@ -148,7 +148,7 @@ class DispatchTest(unittest.TestCase):
                 self.assertEquals(face, actualResult[elementIndex])
                 elementIndex += 1
                 
-    #Sad path
+    #Sad path assignment 4
     
     def test100_900_ShouldReturnErrorOnEmptyParm(self):
         queryString=""
