@@ -8,7 +8,8 @@ faces = [front, right, bottom, left, top, under]
 
 def dispatch(parm={}): 
     httpResponse = {}
-    print(*parm)
+    print 'parm='
+    print(parm)
     if(not('op' in parm)):
         httpResponse['status'] = 'error: missing op'
      
@@ -21,7 +22,7 @@ def dispatch(parm={}):
             httpResponse['status'] = response
     
     elif(parm['op'] == 'check'):
-        print(*parm)
+        print(parm)
         if(not('cube' in parm)):
             httpResponse['status'] = 'error: missing cube'   
         else:
