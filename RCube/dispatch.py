@@ -19,7 +19,11 @@ def dispatch(parm={}):
         else:
             httpResponse['status'] = response
     
-    
+    elif(parm['op'] == 'check'):
+        if(not('cube' in parm)):
+            httpResponse['status'] = 'error: missing cube'   
+        else:
+            httpResponse['status'] = 'check'
             
     return httpResponse
 
