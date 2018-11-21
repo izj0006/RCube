@@ -10,9 +10,7 @@ def dispatch(parm={}):
     httpResponse = {}
     if(not('op' in parm)):
         httpResponse['status'] = 'error: missing op'
-    if(parm['op'] == 'check'):
-        if(not('cube' in parm)):
-            httpResponse['status'] = 'error: missing cube'    
+     
     elif(parm['op'] == 'create'):                
         response = createCube(parm)
         if(response != 'error: duplicate faces'):
@@ -20,7 +18,11 @@ def dispatch(parm={}):
             httpResponse['cube'] = response
         else:
             httpResponse['status'] = response
-           
+    
+    if(parm['op'] == 'check'):
+    #if(not('cube' in parm)):
+        httpResponse['status'] = 'checked'   
+        
     return httpResponse
 
 #----------inward facing methods----------------
