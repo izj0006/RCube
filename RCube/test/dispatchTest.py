@@ -80,13 +80,6 @@ class DispatchTest(unittest.TestCase):
         resultDict = self.string2dict(resultString)
         self.assertIn('status', resultDict)
     
-    def test100_020_ShouldReturnErrorOnEmptyParm(self):
-        queryString=""
-        resultString = self.httpGetAndResponse(queryString)
-        resultDict = self.string2dict(resultString)
-        self.assertIn('status', resultDict)
-        self.assertEquals('error:',resultDict['status'][0:6])
-    
     def test100_030_ShouldCreateDefaultCubeStatus(self):
         queryString="op=create"
         resultString = self.httpGetAndResponse(queryString)

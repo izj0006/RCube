@@ -58,4 +58,5 @@ def createCube(parm):
     for face in faces:
         for _ in range(0,9):
             cube.append(face)
+            
     return cube
