@@ -8,8 +8,6 @@ faces = [front, right, bottom, left, top, under]
 
 def dispatch(parm={}): 
     httpResponse = {}
-    print 'parm='
-    print(parm)
     if(not('op' in parm)):
         httpResponse['status'] = 'error: missing op'
      
@@ -22,11 +20,12 @@ def dispatch(parm={}):
             httpResponse['status'] = response
     
     elif(parm['op'] == 'check'):
-        print(parm)
         if(not('cube' in parm)):
-            httpResponse['status'] = 'error: missing cube'   
+            print 'cube missing in parm'
+            #httpResponse['status'] = 'error: missing cube'   
         else:
-            httpResponse['status'] = 'check'
+            #httpResponse['status'] = 'check'
+            print 'cube present in parm'
     return httpResponse
 
 #----------inward facing methods----------------
