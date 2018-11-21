@@ -10,7 +10,6 @@ def dispatch(parm={}):
     httpResponse = {}
     if(not('op' in parm)):
         httpResponse['status'] = 'error: missing op'
-     
     elif(parm['op'] == 'create'):                
         response = createCube(parm)
         if(response != 'error: duplicate faces'):
@@ -19,9 +18,28 @@ def dispatch(parm={}):
         else:
             httpResponse['status'] = response
             
+    elif(parm['op'] == 'check'):
+        if(not('cube' in parm)):
+            httpResponse['status'] = 'error: missing cube'
+        else:
+            response = checkSize(parm)
+            if(response == 'error: invalid size'):
+                httpResponse['status'] = response
+        else:
+            httpResponse['status'] = 'checked'
+            response = determineConfig(parm)
+            httpResponse['cube']=response
+            
     return httpResponse
 
 #----------inward facing methods----------------
+
+def checkSize(parm):
+    cube=parm['cube']
+    cubelist=cube.split(",")
+    if((len(cubelist))!=54):
+        error_message = 'error: invalid size'
+    return error_message
 
 def duplicateFaces(parm):
     for indexFace in range(0, 6):
