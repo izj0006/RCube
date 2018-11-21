@@ -19,9 +19,16 @@ def dispatch(parm={}):
         else:
             httpResponse['status'] = response
     
-    if(parm['op'] == 'check'):
-    #if(not('cube' in parm)):
-        httpResponse['status'] = 'checked'   
+    elif(parm['op'] == 'check'):
+        response = createCube(parm)
+        if(response != 'error: duplicate faces'):
+            httpResponse['status'] = 'created'
+            httpResponse['cube'] = response
+        else:
+            httpResponse['status'] = response
+        
+        #if(not('cube' in parm)):
+            #httpResponse['status'] = 'error: missing cube'   
         
     return httpResponse
 
