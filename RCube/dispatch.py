@@ -5,7 +5,7 @@ left = 'white'
 top = 'red'
 under = 'orange'
 faces = [front, right, bottom, left, top, under]
-parm = "op=check"
+
 def dispatch(parm={}): 
     httpResponse = {}
     if(not('op' in parm)):
@@ -21,11 +21,10 @@ def dispatch(parm={}):
     
     elif(parm['op'] == 'check'):
         if(not('cube' in parm)):
-            httpResponse['status'] = 'error: missing cube'
-            print 'missing cube'   
+            httpResponse['status'] = 'error: missing cube'   
         else:
             httpResponse['status'] = 'check'
-            print 'cube checked'
+            
     return httpResponse
 
 #----------inward facing methods----------------
