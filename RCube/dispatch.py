@@ -20,21 +20,17 @@ def dispatch(parm={}):
             httpResponse['status'] = response
     
     elif(parm['op'] == 'check'):
-        response = cubepresent(parm)
-        if(response != 'error: missing cube'):
+        response = createCube(parm)
+        if('cube' in parm):
             httpResponse['status'] = 'checked'
             httpResponse['cube'] = response
         else:
-            httpResponse['status'] = response  
+            httpResponse['status'] = 'error: missing cube'
+         
         
     return httpResponse
 
 #----------inward facing methods----------------
-
-def cubepresent(parm):
-    if(not('cube' in parm)):
-        error_message = 'error: duplicate faces'
-        return error_message
 
 def duplicateFaces(parm):
     for indexFace in range(0, 6):
