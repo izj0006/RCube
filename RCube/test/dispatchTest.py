@@ -160,7 +160,7 @@ class DispatchTest(unittest.TestCase):
         self.assertEquals('error:',resultDict['status'][0:6])
     
     def test100_910_ShouldReturnErrorOnMissingOp(self):
-        queryString="op=check"
+        queryString="f=red"
         resultString = self.httpGetAndResponse(queryString)
         resultDict = self.string2dict(resultString)
         self.assertIn('status', resultDict)
