@@ -169,7 +169,7 @@ class DispatchTest(unittest.TestCase):
     #sad path assignment 5
     
     def test100_920_ShouldReturnErrorOnMissingCube(self):
-        queryString="op=check"
+        queryString = "op=check&f=f&r=r&b=b"
         resultString = self.httpGetAndResponse(queryString)
         resultDict = self.string2dict(resultString)
         self.assertIn('status', resultDict)
