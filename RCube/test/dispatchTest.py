@@ -142,6 +142,12 @@ class DispatchTest(unittest.TestCase):
                 elementIndex += 1
                 
     #happy path assignment 5
+    
+    def test300_010_ShouldReturnStatusFullWithNumbers(self):
+        queryString = "op=check&f=1&r=2&b=3&l=4&t=5&u=6&cube=1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,6,6,6,6,6,6,6,6,6"
+        resultString = self.httpGetAndResponse(queryString)
+        resultDict = self.string2dict(resultString)
+        self.assertEquals('full',resultDict['status'])
                 
     #Sad path assignment 4
     

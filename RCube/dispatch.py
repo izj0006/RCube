@@ -5,6 +5,9 @@ left = 'white'
 top = 'red'
 under = 'orange'
 faces = [front, right, bottom, left, top, under]
+edges = []
+middle = []
+corners = []
 
 def dispatch(parm={}): 
     httpResponse = {}
@@ -26,8 +29,8 @@ def dispatch(parm={}):
             if(response == 'error: invalid size'):
                 httpResponse['status'] = response
             else:
-                httpResponse['status'] = 'checked'
                 response = determineConfig(parm)
+                httpResponse['status'] = 'full'
                 httpResponse['cube']=response
             
     return httpResponse
@@ -48,9 +51,28 @@ def duplicateFaces(parm):
                 if faces[indexFace] == faces[indexFace2]:
                     error_message = 'error: duplicate faces'
                     return error_message
+                
+def chunks(cube,n):
+    for i in range(0,54,n):
+        yield cube[i:i+n]
 
 def determineConfig(parm):
-    return
+    cube=parm['cube']
+    splitcube = list(chunks(cube,9))
+        
+    if( splitcube[0].count(splitcube[0][1]) == 9 & splitcube[1].count(splitcube[0][1]) == 9 & splitcube[2].count(splitcube[0][1]) == 9 & splitcube[3].count(splitcube[0][1]) == 9 & splitcube[4].count(splitcube[0][1]) == 9 & splitcube[5].count(splitcube[0][1]) == 9 ):
+        message = 'FULL'
+    
+    elif():
+        message = 'CROSSES'
+        
+    elif():
+        message = 'SPOTS'
+        
+    else:
+        message = 'UNKNOWN'
+        
+    return message
 
 def createCube(parm):
     if('f' in parm):
